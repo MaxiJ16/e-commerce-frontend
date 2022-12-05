@@ -1,18 +1,17 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Layout } from "components/layout";
-import { Home } from "components/home-page";
+import { Login } from "components/login-page";
 
-
-const HomePage: NextPage = () => {
+const LoginPage: NextPage = () => {
   return (
     <Layout>
       <Head>
-        <title>Compralo</title>
+        <title>Ingresar - Compralo</title>
       </Head>
-      <Home />
+      <Login />
     </Layout>
   );
 };
 
-export default HomePage;
+export default LoginPage;

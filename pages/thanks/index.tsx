@@ -1,18 +1,18 @@
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import { Layout } from "components/layout";
-import { Home } from "components/home-page";
 
-
-const HomePage: NextPage = () => {
+const Thanks: NextPage = () => {
   return (
     <Layout>
       <Head>
-        <title>Compralo</title>
+        <title>Gracias !</title>
       </Head>
-      <Home />
+
+      <h1>GRACIAS POR TU COMPRA</h1>
     </Layout>
   );
 };
 
-export default HomePage;
+export default Thanks;

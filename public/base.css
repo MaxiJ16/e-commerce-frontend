@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html, h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --gray-100: #c1c1c1;
+  --black: #000000;
+  --border-radius: 8px;
+  --white: #fafafa;
+  --blue: #4F7CAC;
+  --light-blue: #91E5F6;
+  --orange: #FFC700;
+  --dark-blue:#201E50;
+  --pink: #E75A7C;
+  --danger: #dc3545;
+}
