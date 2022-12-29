@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;900&family=Montserrat:wght@400;500;700;900&family=Raleway:wght@400;500;700;900&display=swap');
+
 * {
+  scroll-behavior: smooth;
   box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 
 body, html, h1, h2, p {
@@ -11,15 +15,25 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
 :root {
   --gray-100: #c1c1c1;
+  --gray: #F5F5F8;
   --black: #000000;
   --border-radius: 8px;
   --white: #fafafa;
-  --blue: #4F7CAC;
+  --blue: rgb(0 61 255);
   --light-blue: #91E5F6;
   --orange: #FFC700;
   --dark-blue:#201E50;
   --pink: #E75A7C;
   --danger: #dc3545;
+  --success: #198754;
+  --border-radius: 8px;
+  --primary: #5956E9;
+  --secondary: #03DAC5;
+
 }

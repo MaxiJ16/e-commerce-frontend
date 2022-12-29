@@ -1,14 +1,25 @@
 import styled from "styled-components";
 import { Tiny } from "ui/text";
 
+export const Label = styled.label`
+  position: relative;
+
+  svg {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+`;
 export const Input = styled.input`
-  border-radius: var(--border-radius);
-  padding: 9px;
+  width: 100%;
+  border-radius: 30px;
+  padding: 18px;
   font-weight: 700;
   font-size: 16px;
-  border: 3px solid;
-  width: 100%;
+  border: 2px solid var(--primary);
   margin-top: 3px;
+  text-align: center;
 `;
 
-export const Label = styled(Tiny)``;
+export const TextLabel = styled(Tiny)``;

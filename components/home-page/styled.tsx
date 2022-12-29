@@ -5,21 +5,29 @@ export const Root = styled.div`
 `;
 
 export const FirtsPageContainer = styled.div`
-  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   padding: 0px 36px;
+  margin: 90px 0;
 
   @media (min-width: 769px) {
-    width: 400px;
-    height: 94vh;
+    width: 500px;
+    height: 60vh;
     margin: 0 auto;
   }
 
   h1 {
     margin-bottom: 10px;
+  }
+
+  @media (min-width: 769px) {
+    h1 {
+      width: 350px;
+      margin: 0 auto;
+      margin-bottom: 15px;
+    }
   }
 
   label {

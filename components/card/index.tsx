@@ -18,8 +18,8 @@ export function Card({ title = "Titulo", price = "price", img, objectId }: props
       </CardImg>
 
       <CardContent>
-        <LargeText>{title}</LargeText>
-        <SubTitle>{price}</SubTitle>
+        <SubTitle>{title}</SubTitle>
+        <LargeText>{price}</LargeText>
       </CardContent>
     </ContainerCard>
   );

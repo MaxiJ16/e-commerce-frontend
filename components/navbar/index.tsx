@@ -1,19 +1,28 @@
 import Link from "next/link";
 import Router, { useRouter } from "next/router";
 import { useState } from "react";
-import { NavContainer, BgDiv, Header, ContainerForm } from "./styles";
+import {
+  NavContainer,
+  BgDiv,
+  Header,
+  ContainerForm,
+  ContainerContent,
+} from "./styles";
 import { removeToken } from "lib/api";
 import { useGetToken, useMe } from "hooks";
 import { SearchProductForm } from "components/search-product-form";
 
 import { BurguerButton } from "ui/buttons/burguer-button";
-import { LogoWhite } from "ui/icons";
-import { LargeTextBold } from "ui/text";
+import { LogoWhite, Search, User, Logout } from "ui/icons";
+import { BodyTextBold } from "ui/text";
+import { Menu } from "./menu";
+import { LogoutButton, PrimaryButton, TertiaryButton } from "ui/buttons";
 
 export function Navbar() {
   const router = useRouter();
   const [clicked, setClicked] = useState(false);
   const myData = useMe();
+  const name = myData?.username?.split(" ")[0];
   const { token } = useGetToken();
 
   const handleClick = () => {
@@ -24,17 +33,19 @@ export function Navbar() {
     handleClick();
     router.push("/signin");
   };
+
   const handleProfileClick = () => {
     handleClick();
     router.push(token ? "/profile" : "/signin");
   };
+
   const handleSearchClick = () => {
     handleClick();
     router.push("/");
   };
 
   const sessionClick = () => {
-    console.log("session");
+    handleClick();
     if (token) {
       removeToken();
       Router.push("/");
@@ -51,36 +62,58 @@ export function Navbar() {
         </Link>
 
         <ContainerForm
-          style={{ display: `${router?.asPath == "/" ? "none" : ""} ` }}
+          style={{
+            display: `${router?.asPath == "/" ? "none" : ""} `,
+          }}
         >
           <SearchProductForm />
         </ContainerForm>
 
-        <div className={`link-container ${clicked ? `active` : ``}`}>
-          <LargeTextBold onClick={handleSignInClick}>Ingresar</LargeTextBold>
+        <Menu
+          router={router}
+          token={token}
+          logOut={sessionClick}
+          userData={myData?.username ? myData?.username : myData?.email}
+        />
 
-          <LargeTextBold onClick={handleProfileClick}>Mi Perfil</LargeTextBold>
+        {token ? (
+          <>
+            <ContainerContent
+              className={`link-container ${clicked ? `active` : ``}`}
+            >
+              <span onClick={handleClick} className="X">
+                X
+              </span>
 
-          <LargeTextBold onClick={handleSearchClick}>Buscar</LargeTextBold>
+              <BodyTextBold className="containerName">
+                {token
+                  ? "Bienvenido " + (name ? name : myData?.email) + "!"
+                  : ""}
+              </BodyTextBold>
 
-          <p style={{ color: "red" }}>{`${token ? myData?.email : ""}`}</p>
+              <PrimaryButton onClick={handleProfileClick}>
+                <User />
+                <BodyTextBold>Mi Perfil</BodyTextBold>
+              </PrimaryButton>
+              <PrimaryButton onClick={handleSearchClick}>
+                <Search />
+                Buscar
+              </PrimaryButton>
+              <LogoutButton onClick={sessionClick}>
+                <Logout />
+                Logout
+              </LogoutButton>
+            </ContainerContent>
 
-          <p
-            style={{
-              color: "yellow",
-              fontSize: "20px",
-              padding: "10px",
-              border: "2px solid",
-            }}
-            onClick={sessionClick}
-          >{`${token ? "Cerrar Sesión" : "Iniciar Sesión"}`}</p>
-        </div>
+            <div className="burguer">
+              <BurguerButton clicked={clicked} handleClick={handleClick} />
+            </div>
 
-        <div className="burguer">
-          <BurguerButton clicked={clicked} handleClick={handleClick} />
-        </div>
-
-        <BgDiv className={`initial ${clicked ? `active` : ``}`}></BgDiv>
+            <BgDiv className={`initial ${clicked ? `active` : ``}`}></BgDiv>
+          </>
+        ) : (
+          <TertiaryButton className="loginButton" onClick={handleSignInClick}>Ingresar</TertiaryButton>
+        )}
       </NavContainer>
     </Header>
   );

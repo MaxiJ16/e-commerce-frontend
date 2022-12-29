@@ -2,27 +2,21 @@ import styled from "styled-components";
 
 export const FeaturedProductsContainer = styled.div`
   width: 100%;
-  padding: 51px 24px 130px;
+  padding: 51px 24px 100px;
   display: grid;
-  gap: 30px;
+  gap: 80px;
   text-align: center;
-  background-color: var(--pink);
-
-  @media (min-width: 769px) {
-    background-color: var(--light-blue);
-  }
+  background-color: var(--gray);
+  border-radius: var(--border-radius);
 
   h2 {
-    margin-bottom: 20px;
-    @media (min-width: 769px) {
-      color: var(--black);
-    }
+    color: var(--black);
   }
 `;
 
 export const CardContainer = styled.div`
   display: grid;
-  gap: 23px;
+  gap: 80px;
   justify-items: center;
 
   @media (min-width: 769px) {

@@ -1,12 +1,13 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Input, Label, Form, Span } from "./styled";
-import { SecondaryButton } from "ui/buttons";
+import { Input, Label, Form } from "./styled";
+import { PrimaryButton, SecondaryButton } from "ui/buttons";
 import { useState } from "react";
-import { BodyText, Tiny, Title } from "ui/text";
+import { BodyText, BodyTextBold, SpanError, Tiny, Title } from "ui/text";
 import { SubTitle } from "ui/text";
 
 import { sendCode, getToken, getSaveToken } from "lib/api";
 import router from "next/router";
+import { Alert, Mail, Candado } from "ui/icons";
 
 interface EFormValues {
   email: string;
@@ -52,11 +53,19 @@ export const LoginForm = () => {
       <Form onSubmit={handleSubmit(handleEmailForm)}>
         <Title>Ingresar</Title>
         <label>
-          <Label>Email</Label>
+          <Label>
+            <Mail />
+            Email
+          </Label>
           <Input type="email" {...register("email", { required: true })} />
         </label>
-        {errors.email && <Span role="alert">Debes ingresar un email</Span>}
-        <SecondaryButton>Continuar</SecondaryButton>
+        {errors.email && (
+          <SpanError role="alert">
+            <Alert />
+            Debes ingresar un email
+          </SpanError>
+        )}
+        <PrimaryButton>Continuar</PrimaryButton>
       </Form>
     ) : (
       <div>
@@ -65,13 +74,22 @@ export const LoginForm = () => {
     )
   ) : (
     <Form onSubmit={handleSubmit(handleCodeForm)}>
-      <Title>Código</Title>
+      <Title>Ingresar</Title>
+      <BodyTextBold>Te enviamos un código a tu email</BodyTextBold>
       <label>
+        <Label>
+          <Candado />
+          Código
+        </Label>
         <Input type="text" {...register("code", { required: true })} />
       </label>
-      <BodyText>Te enviamos un código a tu email</BodyText>
-      <SecondaryButton>Ingresar</SecondaryButton>
-      {errors.code && <Span role="alert">Debes ingresar un código</Span>}
+      {errors.code && (
+        <SpanError role="alert">
+          <Alert />
+          Debes ingresar un código
+        </SpanError>
+      )}
+      <PrimaryButton>Continuar</PrimaryButton>
     </Form>
   );
 };

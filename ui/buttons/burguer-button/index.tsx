@@ -1,8 +1,8 @@
 import { Burguer } from "./styled";
 
 type BurguerProps = {
-  clicked: boolean;
-  handleClick: () => (void);
+  clicked?: boolean;
+  handleClick?: () => void;
 };
 
 export function BurguerButton(props: BurguerProps) {

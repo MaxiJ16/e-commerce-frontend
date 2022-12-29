@@ -7,7 +7,7 @@ export function Home() {
   return (
     <Root>
       <FirtsPageContainer>
-        <Title>El mejor e-commerce</Title>
+        <Title>Compralo Shop</Title>
         <SearchProductForm />
       </FirtsPageContainer>
 

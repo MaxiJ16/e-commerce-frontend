@@ -9,7 +9,11 @@ import {
   ContainerImg,
   ProductImg,
   ContainerDetail,
+  ContainerForm,
+  ContainerProductDetail,
 } from "./styled";
+
+import { SearchProductForm } from "components/search-product-form";
 
 export const Product = ({ productId }: any) => {
   const productData = useProduct(productId);
@@ -33,17 +37,22 @@ export const Product = ({ productId }: any) => {
 
   return (
     <ContainerProductPage>
-      <ContainerImg>
-        <ProductImg src={productData?.Images[0].url} />
-      </ContainerImg>
-      <ContainerDetail>
-        <SubTitle>{productData?.Name}</SubTitle>
-        <Title>{"$" + productData?.Cost}</Title>
-        <PrimaryButton onClick={handleBuy}>
-          <SubTitle>Comprar</SubTitle>
-        </PrimaryButton>
-        <BodyText>{productData?.Description}</BodyText>
-      </ContainerDetail>
+      <ContainerForm>
+        <SearchProductForm />
+      </ContainerForm>
+      <ContainerProductDetail>
+        <ContainerImg>
+          <ProductImg src={productData?.Images[0].url} />
+        </ContainerImg>
+        <ContainerDetail>
+          <SubTitle>{productData?.Name}</SubTitle>
+          <Title>{"$" + productData?.Cost}</Title>
+          <PrimaryButton onClick={handleBuy}>
+            <SubTitle>Comprar</SubTitle>
+          </PrimaryButton>
+          <BodyText>{productData?.Description}</BodyText>
+        </ContainerDetail>
+      </ContainerProductDetail>
     </ContainerProductPage>
   );
 };

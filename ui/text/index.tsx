@@ -6,7 +6,7 @@ export const Title = styled.h1`
 
 export const SubTitle = styled(Title).attrs({ as: "h2" })`
   font-size: 32px;
-  color: ${props => props.color}
+  color: ${(props) => props.color};
 `;
 
 export const LargeText = styled.p`
@@ -27,4 +27,26 @@ export const BodyTextBold = styled(BodyText)`
 
 export const Tiny = styled.span`
   font-size: 12px;
+`;
+
+export const SpanError = styled.span`
+  color: var(--danger);
+  margin-top: 14px;
+  text-align: center;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+`;
+
+export const SpanSuccess = styled.span`
+  color: var(--success);
+  margin-top: 14px;
+  text-align: center;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 `;

@@ -19,15 +19,16 @@ import {
 } from "ui/buttons";
 import { Home } from "components/home-page";
 import { Logo } from "ui/icons";
-import { Card } from "ui/card";
+import { Card } from "components/card";
 import { Navbar } from "components/navbar";
 
+import { Menu } from "components/navbar/menu";
 const Ui: NextPage = () => {
   const router = useRouter();
   const { q } = router.query;
 
   return (
-      <Navbar />
+    // <Navbar />
     // <Layout>
     //   <br />
     //   <br />
@@ -61,6 +62,7 @@ const Ui: NextPage = () => {
     //   <br />
     //   <Card title="Reloj super guachiguau" price="456" />
     // </Layout>30%
+    <Menu />
   );
 };
 

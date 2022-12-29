@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const FooterContainer = styled.footer`
   width: 100%;
   height: 35vh;
-  background-color: var(--black);
+  background-color: var(--primary);
   padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 
   @media (min-width: 760px) {
-    height: 30vh;
+    height: 25vh;
     flex-direction: row;
     align-items: center;
     padding: 50px;

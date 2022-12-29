@@ -1,4 +1,5 @@
-import { Input, Label } from "./styled";
+import { Search } from "ui/icons";
+import { Input, TextLabel, Label } from "./styled";
 
 type TexFieldProps = {
   label?: string;
@@ -11,9 +12,10 @@ export function TextField(props: TexFieldProps) {
   const { placeholder, label, type, name } = props;
 
   return (
-    <label>
-      <Label>{label}</Label>
+    <Label>
+      <TextLabel>{label}</TextLabel>
       <Input placeholder={placeholder} type={type} name={name} />
-    </label>
+      <Search/>
+    </Label>
   );
 }

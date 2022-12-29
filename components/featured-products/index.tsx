@@ -1,5 +1,5 @@
 import { useProductsFeatured } from "hooks";
-import { Card } from "ui/card";
+import { Card } from "components/card";
 import { SubTitle } from "ui/text";
 import { FeaturedProductsContainer, CardContainer } from "./styled";
 

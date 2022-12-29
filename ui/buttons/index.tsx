@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const BaseButton = styled.button`
   width: 100%;
-  padding: 16px;
+  padding: 18px 10px;
   border: none;
   border-radius: 8px;
   color: var(--white);
@@ -11,7 +11,7 @@ export const BaseButton = styled.button`
 `;
 
 export const PrimaryButton = styled(BaseButton)`
-  background-color: var(--blue);
+  background-color: var(--primary);
 `;
 
 export const SecondaryButton = styled(BaseButton)`
@@ -20,4 +20,8 @@ export const SecondaryButton = styled(BaseButton)`
 
 export const TertiaryButton = styled(BaseButton)`
   background-color: var(--pink);
+`;
+
+export const LogoutButton = styled(BaseButton)`
+  background-color: var(--danger);
 `;

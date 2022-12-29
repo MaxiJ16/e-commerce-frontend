@@ -2,8 +2,14 @@ import { SearchProductForm } from "components/search-product-form";
 import { useGetPagination } from "hooks";
 import { useEffect, useState } from "react";
 import { BaseButton, PrimaryButton } from "ui/buttons";
-import { Card } from "ui/card";
-import { ContainerResultsPage, ContainerForm, ContainerCard } from "./style";
+import { Card } from "components/card";
+import {
+  ContainerResultsPage,
+  ContainerForm,
+  ContainerCard,
+  ContainerButtons,
+} from "./style";
+import { BodyTextBold } from "ui/text";
 
 export const ResultsPage = (productName: any) => {
   const [page, setPage] = useState(1);
@@ -46,12 +52,12 @@ export const ResultsPage = (productName: any) => {
       {product ? (
         <>
           {/* {<h2>Página: {page}</h2>} */}
-          <div>
+          <BodyTextBold className="resultsAmount">
             {offset + 3 < data?.pagination.total
               ? offset + 3
               : data?.pagination.total}{" "}
-            resultados de {data?.pagination.total}
-          </div>
+            resultados de {data?.pagination.total}{" "}
+          </BodyTextBold>
           <ContainerCard>
             {product.map((r: any) => (
               <Card
@@ -64,10 +70,15 @@ export const ResultsPage = (productName: any) => {
             ))}
           </ContainerCard>
 
-          <div>
-            <button onClick={handlePrevPage}>{"<"}</button>
-            <button onClick={handleNextPage}>{">"}</button>
-          </div>
+          <ContainerButtons>
+            {page > 1 ? <button onClick={handlePrevPage}>{"<"}</button> : ""}
+
+            {page < maxPage ? (
+              <button onClick={handleNextPage}>{">"}</button>
+            ) : (
+              ""
+            )}
+          </ContainerButtons>
         </>
       ) : (
         <ContainerCard>

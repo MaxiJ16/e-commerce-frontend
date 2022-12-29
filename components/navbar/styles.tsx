@@ -4,19 +4,18 @@ export const Header = styled.header``;
 
 export const NavContainer = styled.nav`
   padding: 1rem;
-  background-color: var(--black);
+  background-color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 1;
 
-  p {
-    color: var(--white);
-    margin-right: 1rem;
+  @media (min-width: 769px) {
+    padding: 21px;
   }
 
   .burguer {
-    z-index: 1;
+    z-index: 2;
   }
 
   @media (min-width: 769px) {
@@ -30,69 +29,85 @@ export const NavContainer = styled.nav`
     top: -700px;
     left: -2000px;
     right: 0;
+
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    transition: all 0.7s ease;
-
-    p {
-      color: var(--white);
-      font-size: 2rem;
-      display: block;
-    }
+    transition: all 0.6s ease;
 
     @media (min-width: 769px) {
       position: initial;
       margin: 0;
-      p {
-        font-size: 1rem;
-        color: var(--white);
-        display: inline;
-      }
+      padding: 21px;
     }
   }
 
   .link-container.active {
-    width: 100%;
-    display: block;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    top: 30%;
+    width: 75%;
+    padding: 10px 20px 30px;
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    display: grid;
+    gap: 25px;
+    top: 25%;
     left: 0;
     right: 0;
-    text-align: center;
-    z-index: 1;
-
-    p {
-      color: var(--white);
-      margin-top: 31px;
-    }
+    position: fixed;
+    z-index: 2;
 
     @media (min-width: 769px) {
       position: initial;
       margin: 0;
       width: auto;
     }
+
+    svg {
+      stroke: var(--white);
+      height: 20px;
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .loginButton {
+    background-color: var(--secondary);
+    color: var(--black);
+    width: auto;
+    height: auto;
+    padding: 10px 15px;
+  }
+
+  @media (min-width: 769px) {
+    .loginButton {
+      display: none;
+    }
   }
 `;
 
 export const BgDiv = styled.div`
   background-color: var(--black);
-  border-radius: 0 0 30px 0;
   position: absolute;
+  border-radius: 0 0 30px 0;
   top: -1000px;
   left: -1000px;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  transition: all 0.7s ease;
+  z-index: 1;
+  position: fixed;
+  transition: all 0.6s ease;
 
   &.active {
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    opacity: 0.5;
 
     @media (min-width: 769px) {
       top: -1000px;
@@ -101,16 +116,46 @@ export const BgDiv = styled.div`
   }
 `;
 
+export const ContainerContent = styled.div`
+  @media (min-width: 769px) {
+    display: none;
+  }
+
+  .X {
+    background-color: var(--danger);
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 50%;
+    padding: 2px;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    left: 90%;
+  }
+`;
 export const ContainerForm = styled.div`
   display: none;
 
   @media (min-width: 1200px) {
     display: initial;
-    background-color: var(--black);
+    width: 600px;
 
     form {
-      width: 700px;
       display: flex;
+      height: 50px;
+
+      button {
+        background-color: var(--pink);
+        color: var(--white);
+      }
+
+      input {
+        background-color: var(--white);
+        color: var(--black);
+        height: 48px;
+        border: 1px solid white;
+      }
     }
   }
 

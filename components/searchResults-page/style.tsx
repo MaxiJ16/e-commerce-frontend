@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerResultsPage = styled.div`
+  background-color: var(--gray);
   height: auto;
   padding-bottom: 40px;
   display: grid;
@@ -8,15 +9,24 @@ export const ContainerResultsPage = styled.div`
   gap: 40px;
   justify-items: center;
 
-  @media(min-width: 1200px){
-    height: calc(100vh - 381px);
+  @media (min-width: 1200px) {
+    height: calc(100vh - 335px);
+    padding: 50px 300px;
+  }
+
+  .resultsAmount {
+    margin-bottom: 20px;
+
+    @media (min-width: 1200px) {
+      font-size: 20px;
+    }
   }
 `;
 
 export const ContainerForm = styled.div`
   width: 100%;
-  background-color: var(--black);
-  padding: 25px;
+  background-color: var(--primary);
+  padding: 20px 30px;
 
   @media (min-width: 1200px) {
     display: none;
@@ -27,18 +37,19 @@ export const ContainerForm = styled.div`
     }
   }
 
+  form {
+    gap: 10px;
+  }
+
   input {
-    background-color: var(--black);
-    color: var(--white);
-    border: 3px solid var(--white);
-    border-radius: 8px;
+    padding: 13px;
   }
 
   button {
-    background-color: var(--orange);
-    color: var(--black);
+    border-radius: 20px;
+    background-color: var(--pink);
+    color: var(--white);
     padding: 9px;
-    margin-top: 5px;
   }
 `;
 
@@ -46,10 +57,29 @@ export const ContainerCard = styled.div`
   width: 100%;
   display: grid;
   justify-items: center;
-  gap: 53px;
+  gap: 80px;
 
   @media (min-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 100px;
+  }
+`;
+
+export const ContainerButtons = styled.div`
+  button {
+    font-size: 30px;
+    padding: 2px 15px;
+    font-weight: bold;
+    border: none;
+    background: var(--secondary);
+    color: var(--white);
+    margin-right: 10px;
+    border-radius: var(--border-radius);
+  }
+
+  @media(min-width: 769px){
+    button:hover {
+      background: var(--primary)
+    }
+
   }
 `;
