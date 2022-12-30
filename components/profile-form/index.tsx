@@ -8,7 +8,7 @@ import { modifiedUserData } from "lib/api";
 import { SpanError, SpanSuccess } from "ui/text";
 import { Alert, Check } from "ui/icons";
 import React, { useState } from "react";
-import { Loader } from "ui/loader";
+import { Loader } from "ui/loader/loading";
 
 const Form = styled.form`
   display: grid;

@@ -83,7 +83,18 @@ export const Candado = styled(CandadoSVG)`
 import CheckSVG from "./check.svg";
 
 export const Check = styled(CheckSVG)`
- width: 24px;
+  width: 24px;
   height: 24px;
   stroke: var(--success);
+`;
+
+import ThanksSVG from "./thanks.svg";
+
+export const BuyThanks = styled(ThanksSVG)`
+  width: 300px;
+  height: 300px;
+  @media (min-width: 769px) {
+    width: 500px;
+    height: 400px;
+  }
 `;

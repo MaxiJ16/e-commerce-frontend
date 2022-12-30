@@ -2,14 +2,15 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { Layout } from "components/layout";
 
+import { ThanksPage } from "components/thanks-page";
+
 const Thanks: NextPage = () => {
   return (
     <Layout>
       <Head>
-        <title>Gracias !</title>
+        <title>Gracias por tu compra!</title>
       </Head>
-
-      <h1>GRACIAS POR TU COMPRA</h1>
+      <ThanksPage/>
     </Layout>
   );
 };

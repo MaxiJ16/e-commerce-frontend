@@ -10,7 +10,7 @@ export function Home() {
         <Title>Compralo Shop</Title>
         <SearchProductForm />
       </FirtsPageContainer>
-
+      
       <FeaturedProducts/>
     </Root>
   );
