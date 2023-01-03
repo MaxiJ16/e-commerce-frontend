@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const ContainerProductPage = styled.div`
   @media (min-width: 1200px) {
-    height: calc(100vh - 335px);
+    height: calc(100vh - 329px);
     background-color: var(--gray);
   }
 `;

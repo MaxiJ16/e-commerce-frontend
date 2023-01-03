@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const ContainerThanksPage = styled.div`
-  padding: 40px;
+  padding: 46px;
   display: grid;
   gap: 30px;
   place-items: center;
   text-align: center;
 
   @media (min-width: 769px) {
-    height: calc(100vh - 330px);
+    height: calc(100vh - 329px);
+    padding: 120px;
     width: 700px;
     margin: 0 auto;
   }
@@ -26,6 +27,7 @@ export const ContainerThanksPage = styled.div`
 
     @media (min-width: 769px) {
       font-size: 26px;
+      
     }
   }
 `;

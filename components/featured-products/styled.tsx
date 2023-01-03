@@ -12,6 +12,25 @@ export const FeaturedProductsContainer = styled.div`
   h2 {
     color: var(--black);
   }
+
+  .containerCircles {
+    @media (min-width: 769px) {
+      margin: 0 260px;
+    }
+
+    .circles {
+      background-color: var(--primary);
+      height: 16px;
+      width: 16px;
+      margin: 6px;
+
+      @media (min-width: 769px) {
+        height: 30px;
+        width: 30px;
+        margin: 10px;
+      }
+    }
+  }
 `;
 
 export const CardContainer = styled.div`

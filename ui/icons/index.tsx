@@ -88,13 +88,10 @@ export const Check = styled(CheckSVG)`
   stroke: var(--success);
 `;
 
-import ThanksSVG from "./thanks.svg";
+import SmileSVG from "./thumbs-up.svg";
 
-export const BuyThanks = styled(ThanksSVG)`
-  width: 300px;
-  height: 300px;
-  @media (min-width: 769px) {
-    width: 500px;
-    height: 400px;
-  }
+export const Smile = styled(SmileSVG)`
+  width: 250px;
+  height: 250px;
+  stroke: var(--secondary);
 `;

@@ -1,13 +1,13 @@
-import { BuyThanks } from "ui/icons";
+import { Smile } from "ui/icons";
 import { BodyTextBold, SubTitle } from "ui/text";
 import { ContainerThanksPage } from "./style";
 
 export const ThanksPage = () => {
   return (
     <ContainerThanksPage>
-      <BuyThanks />
+      <Smile/>
       <SubTitle>Gracias por tu compra</SubTitle>
-      <BodyTextBold>Que lo disfrutes!</BodyTextBold>
+      <BodyTextBold>Que la disfrutes!</BodyTextBold>
     </ContainerThanksPage>
   );
 };

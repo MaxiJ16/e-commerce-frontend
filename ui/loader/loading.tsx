@@ -6,7 +6,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   .circles {
     width: 8px;
     height: 8px;
