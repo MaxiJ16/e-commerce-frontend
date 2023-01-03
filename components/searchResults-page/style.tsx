@@ -10,7 +10,7 @@ export const ContainerResultsPage = styled.div`
   justify-items: center;
 
   @media (min-width: 1200px) {
-    height: calc(100vh - 335px);
+    height: calc(100vh - 329px);
     padding: 50px 300px;
   }
 
@@ -19,6 +19,27 @@ export const ContainerResultsPage = styled.div`
 
     @media (min-width: 1200px) {
       font-size: 20px;
+    }
+  }
+
+
+  .containerLoader {
+    height: 400px;
+    width: 400px;
+    display: grid;
+    gap: 20px;
+    place-items: center;
+    
+  }
+
+  .containerCircles {
+    background: var(--gray);
+
+    .circles {
+      width: 30px;
+      height: 30px;
+      margin: 13px;
+      background-color: var(--primary);
     }
   }
 `;
@@ -76,10 +97,32 @@ export const ContainerButtons = styled.div`
     border-radius: var(--border-radius);
   }
 
-  @media(min-width: 769px){
+  @media (min-width: 769px) {
     button:hover {
-      background: var(--primary)
+      background: var(--primary);
+    }
+  }
+`;
+
+export const ContainerNoResults = styled.div`
+  padding: 30px;
+  text-align: center;
+  display: grid;
+  gap: 30px;
+
+  p {
+    color: var(--primary);
+  }
+
+  @media (min-width: 769px) {
+    margin-bottom: 230px;
+    gap: 40px;
+    h2 {
+      font-size: 40px;
     }
 
+    p {
+      font-size: 20px;
+    }
   }
 `;

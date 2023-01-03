@@ -1,13 +1,13 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Input, Label } from "components/login-form/styled";
-import { PrimaryButton, SecondaryButton } from "ui/buttons";
-import { useMe } from "hooks";
 import { modifiedUserData } from "lib/api";
+import { Input, Label } from "components/login-form/styled";
+import { PrimaryButton } from "ui/buttons";
+import { useMe } from "hooks";
 import { SpanError, SpanSuccess } from "ui/text";
 import { Alert, Check } from "ui/icons";
-import React, { useState } from "react";
 import { Loader } from "ui/loader/loading";
 
 const Form = styled.form`

@@ -6,11 +6,10 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
 
   .circles {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     animation: bounce 1s 0.7s linear infinite;
     border-radius: 100%;
     margin: 4px;
@@ -18,8 +17,8 @@ export const Container = styled.div`
 
   @media (min-width: 769px) {
     .circles {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
     }
   }
 
@@ -57,7 +56,7 @@ export const Container = styled.div`
 
 export const Loader = () => {
   return (
-    <Container>
+    <Container className="containerCircles">
       <div className="circle-1 circles"></div>
       <div className="circle-2 circles"></div>
       <div className="circle-3 circles"></div>

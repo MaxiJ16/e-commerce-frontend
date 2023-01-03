@@ -9,7 +9,7 @@ export const ContainerProductPage = styled.div`
 export const ContainerProductDetail = styled.div`
   height: auto;
   width: 100%;
-  
+
   padding: 30px 30px 80px;
   display: grid;
   gap: 20px;
@@ -103,5 +103,25 @@ export const ContainerForm = styled.div`
     background-color: var(--pink);
     color: var(--white);
     padding: 9px;
+  }
+`;
+
+export const ContainerLoader = styled.div`
+  height: 70vh;
+  width: 100%;
+  display: grid;
+  gap: 20px;
+  place-items: center;
+  background-color: var(--gray);
+
+  .containerCircles {
+    background-color: var(--gray);
+
+    .circles {
+      width: 30px;
+      height: 30px;
+      margin: 13px;
+      background-color: var(--primary);
+    }
   }
 `;

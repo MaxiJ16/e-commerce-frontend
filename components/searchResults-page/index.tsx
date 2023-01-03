@@ -1,21 +1,23 @@
 import { SearchProductForm } from "components/search-product-form";
 import { useGetPagination } from "hooks";
 import { useEffect, useState } from "react";
-import { BaseButton, PrimaryButton } from "ui/buttons";
 import { Card } from "components/card";
 import {
   ContainerResultsPage,
   ContainerForm,
   ContainerCard,
   ContainerButtons,
+  ContainerNoResults,
 } from "./style";
-import { BodyTextBold } from "ui/text";
+import { BodyTextBold, SubTitle } from "ui/text";
+import { Loader } from "ui/loader/loading";
 
 export const ResultsPage = (productName: any) => {
   const [page, setPage] = useState(1);
   const { data, maxPage, offset, setOffset } = useGetPagination(
     productName.productName
   );
+
   const product = data?.results;
 
   useEffect(() => {
@@ -49,9 +51,12 @@ export const ResultsPage = (productName: any) => {
         <SearchProductForm />
       </ContainerForm>
 
-      {product ? (
+      {data?.pagination.total == undefined ? (
+        <div className="containerLoader">
+          <Loader />
+        </div>
+      ) : data?.pagination.total > 0 ? (
         <>
-          {/* {<h2>Página: {page}</h2>} */}
           <BodyTextBold className="resultsAmount">
             {offset + 3 < data?.pagination.total
               ? offset + 3
@@ -63,7 +68,7 @@ export const ResultsPage = (productName: any) => {
               <Card
                 title={r.Name}
                 price={"$" + r.Cost}
-                img={r.Images[0]?.url}
+                img={r.Image[0]?.url}
                 objectId={r.objectID}
                 key={r.objectID}
               />
@@ -81,9 +86,12 @@ export const ResultsPage = (productName: any) => {
           </ContainerButtons>
         </>
       ) : (
-        <ContainerCard>
-          <h1>No hay productos que coincidan con tu búsqueda</h1>
-        </ContainerCard>
+        <ContainerNoResults>
+          <SubTitle>No hay productos que coincidan con tu búsqueda</SubTitle>
+          <BodyTextBold>
+            Prueba buscando alfombra, silla, mesa, lámpara, estante...
+          </BodyTextBold>
+        </ContainerNoResults>
       )}
     </ContainerResultsPage>
   );

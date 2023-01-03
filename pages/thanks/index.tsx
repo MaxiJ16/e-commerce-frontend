@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Layout } from "components/layout";
-
 import { ThanksPage } from "components/thanks-page";
 
 const Thanks: NextPage = () => {
@@ -10,7 +9,7 @@ const Thanks: NextPage = () => {
       <Head>
         <title>Gracias por tu compra!</title>
       </Head>
-      <ThanksPage/>
+      <ThanksPage />
     </Layout>
   );
 };

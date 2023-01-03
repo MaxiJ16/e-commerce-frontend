@@ -1,10 +1,8 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Input, Label, Form } from "./styled";
-import { PrimaryButton, SecondaryButton } from "ui/buttons";
+import { PrimaryButton } from "ui/buttons";
 import { useState } from "react";
-import { BodyText, BodyTextBold, SpanError, Tiny, Title } from "ui/text";
-import { SubTitle } from "ui/text";
-
+import { BodyTextBold, SpanError, Title } from "ui/text";
 import { sendCode, getToken, getSaveToken } from "lib/api";
 import router from "next/router";
 import { Alert, Mail, Candado } from "ui/icons";

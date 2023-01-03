@@ -14,7 +14,7 @@ export function FeaturedProducts() {
           <Card
             title={p.Name}
             price={`$${p.Cost}`}
-            img={p.Images[0].url}
+            img={p.Image[0].url}
             objectId={p.objectID}
             key={p.objectID}
           ></Card>

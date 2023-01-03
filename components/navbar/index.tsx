@@ -11,11 +11,10 @@ import {
 import { removeToken } from "lib/api";
 import { useGetToken, useMe } from "hooks";
 import { SearchProductForm } from "components/search-product-form";
-
+import { Menu } from "./menu";
 import { BurguerButton } from "ui/buttons/burguer-button";
 import { LogoWhite, Search, User, Logout } from "ui/icons";
 import { BodyTextBold } from "ui/text";
-import { Menu } from "./menu";
 import { LogoutButton, PrimaryButton, TertiaryButton } from "ui/buttons";
 
 export function Navbar() {
@@ -112,7 +111,9 @@ export function Navbar() {
             <BgDiv className={`initial ${clicked ? `active` : ``}`}></BgDiv>
           </>
         ) : (
-          <TertiaryButton className="loginButton" onClick={handleSignInClick}>Ingresar</TertiaryButton>
+          <TertiaryButton className="loginButton" onClick={handleSignInClick}>
+            Ingresar
+          </TertiaryButton>
         )}
       </NavContainer>
     </Header>

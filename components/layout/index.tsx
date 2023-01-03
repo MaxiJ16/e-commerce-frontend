@@ -11,11 +11,11 @@ type Props = {
 export const Layout: React.FC<Props> = ({ children }) => {
   return (
     <Root>
-        <Navbar />
+      <Navbar />
       <Suspense fallback={<Loader />}>
         <Content>{children}</Content>
       </Suspense>
-        <Footer />
+      <Footer />
     </Root>
   );
 };
