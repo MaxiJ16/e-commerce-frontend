@@ -15,7 +15,7 @@ export function TextField(props: TexFieldProps) {
     <Label>
       <TextLabel>{label}</TextLabel>
       <Input placeholder={placeholder} type={type} name={name} />
-      <Search/>
+      <Search />
     </Label>
   );
 }

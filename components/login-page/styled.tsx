@@ -2,27 +2,32 @@ import styled from "styled-components";
 
 export const ContainerLogin = styled.section`
   width: 100%;
-  height: calc(100vh - 381px);
-  padding: 40px 40px 75px;
+  min-height: 50vh;
+  padding: 60px 40px;
+  display: grid;
+  place-items: center;
 
   h1 {
-    margin-bottom: 40px;
-    font-size: 35px;
+    font-size: 40px;
+    margin-bottom: 20px;
   }
 
   button {
     color: var(--white);
-    margin-top: 25px;
   }
 
-  @media(min-width: 769px){
-    width: 500px;
-    height: calc(100vh - 423px);
+  @media (min-width: 769px) {
+    min-height: 66vh;
+    width: 600px;
     margin: 0 auto;
-    margin-top: 100px;
 
-    h1, p {
+    h1,
+    p {
       text-align: center;
+    }
+
+    h1 {
+      font-size: 50px;
     }
   }
 `;

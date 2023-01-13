@@ -1,8 +1,8 @@
 import { useProductsFeatured } from "hooks";
 import { Card } from "components/card";
 import { SubTitle } from "ui/text";
-import { FeaturedProductsContainer, CardContainer } from "./styled";
 import { Loader } from "ui/loader/loading";
+import { FeaturedProductsContainer, CardContainer } from "./styled";
 
 export function FeaturedProducts() {
   const productsMostSelled = useProductsFeatured();

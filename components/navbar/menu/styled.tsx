@@ -57,7 +57,6 @@ export const DropdownMenu = styled.div`
     transform: rotate(45deg);
     border-top: 2px solid var(--primary);
     border-left: 2px solid var(--primary);
-   
   }
 
   :hover {

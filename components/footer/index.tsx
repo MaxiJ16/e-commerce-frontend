@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { FooterContainer, FooterContent } from "./styled";
 import { LogoWhite, Facebook, Instagram, Linkedin } from "ui/icons";
 import { BodyText, LargeTextBold } from "ui/text";
+import { FooterContainer, FooterContent } from "./styled";
 
 export function Footer() {
   return (
     <FooterContainer>
       <LogoWhite />
-
       <FooterContent>
         <LargeTextBold>Redes</LargeTextBold>
         <Link
@@ -36,7 +35,6 @@ export function Footer() {
           <Facebook />
           <BodyText>Facebook</BodyText>
         </Link>
-
       </FooterContent>
     </FooterContainer>
   );

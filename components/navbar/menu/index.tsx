@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { TertiaryButton } from "ui/buttons";
-import { BurguerButton } from "ui/buttons/burguer-button";
 import { User, Search, Logout } from "ui/icons";
 import { BodyTextBold } from "ui/text";
 import {

@@ -1,13 +1,5 @@
-import Link from "next/link";
 import Router, { useRouter } from "next/router";
 import { useState } from "react";
-import {
-  NavContainer,
-  BgDiv,
-  Header,
-  ContainerForm,
-  ContainerContent,
-} from "./styles";
 import { removeToken } from "lib/api";
 import { useGetToken, useMe } from "hooks";
 import { SearchProductForm } from "components/search-product-form";
@@ -16,21 +8,28 @@ import { BurguerButton } from "ui/buttons/burguer-button";
 import { LogoWhite, Search, User, Logout } from "ui/icons";
 import { BodyTextBold } from "ui/text";
 import { LogoutButton, PrimaryButton, TertiaryButton } from "ui/buttons";
+import {
+  NavContainer,
+  BgDiv,
+  Header,
+  ContainerForm,
+  ContainerContent,
+} from "./styles";
 
 export function Navbar() {
   const router = useRouter();
-  const [clicked, setClicked] = useState(false);
-  const myData = useMe();
-  const name = myData?.username?.split(" ")[0];
   const { token } = useGetToken();
+  const [clicked, setClicked] = useState(false);
+  const myData: any = useMe();
+  const name = myData?.username?.split(" ")[0];
 
   const handleClick = () => {
     setClicked(!clicked);
   };
 
-  const handleSignInClick = () => {
+  const handleHomeClick = () => {
     handleClick();
-    router.push("/signin");
+    router.push("/");
   };
 
   const handleProfileClick = () => {
@@ -56,9 +55,7 @@ export function Navbar() {
   return (
     <Header>
       <NavContainer>
-        <Link href={"/"}>
-          <LogoWhite />
-        </Link>
+        <LogoWhite onClick={handleHomeClick} />
 
         <ContainerForm
           style={{
@@ -111,7 +108,10 @@ export function Navbar() {
             <BgDiv className={`initial ${clicked ? `active` : ``}`}></BgDiv>
           </>
         ) : (
-          <TertiaryButton className="loginButton" onClick={handleSignInClick}>
+          <TertiaryButton
+            className="loginButton"
+            onClick={() => router.push("/signin")}
+          >
             Ingresar
           </TertiaryButton>
         )}

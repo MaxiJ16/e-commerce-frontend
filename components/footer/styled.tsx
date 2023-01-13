@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
   width: 100%;
-  height: 35vh;
   background-color: var(--primary);
   padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-
+  display: grid;
+  gap: 30px;
+  
   @media (min-width: 760px) {
     height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     flex-direction: row;
     align-items: center;
     padding: 50px;

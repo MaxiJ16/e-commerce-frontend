@@ -2,15 +2,15 @@ import { SearchProductForm } from "components/search-product-form";
 import { useGetPagination } from "hooks";
 import { useEffect, useState } from "react";
 import { Card } from "components/card";
+import { BodyTextBold, SubTitle } from "ui/text";
+import { Loader } from "ui/loader/loading";
 import {
   ContainerResultsPage,
   ContainerForm,
   ContainerCard,
   ContainerButtons,
   ContainerNoResults,
-} from "./style";
-import { BodyTextBold, SubTitle } from "ui/text";
-import { Loader } from "ui/loader/loading";
+} from "./styled";
 
 export const ResultsPage = (productName: any) => {
   const [page, setPage] = useState(1);

@@ -2,7 +2,6 @@ export const BASE_URL = "https://e-commerce-backend-maxij16.vercel.app/api";
 
 export async function fetchAPI(input: RequestInfo | URL, options?: any) {
   const url = BASE_URL + input;
-
   const newOptions: any = options || {};
   // Forma moderna -> si newOptions.headers tiene un valor dejalo como está y sinó que sea un objeto vacio.
   newOptions.headers ||= {};
@@ -23,21 +22,33 @@ export async function fetchAPI(input: RequestInfo | URL, options?: any) {
   const res = await fetch(url, newOptions);
 
   if (res.status >= 200 && res.status < 300) {
-    return res.json();
+    return await res.json();
   } else {
+    const json = await res.json();
     throw {
       message: `Hubo un error`,
       status: res.status,
+      error: json,
     };
   }
 }
 
 // Funciones para que la lógica no esté metida dentro del componente
 export async function sendCode(email: string) {
-  return fetchAPI("/auth", {
-    method: "POST",
-    body: { email },
-  });
+  try {
+    const res = await fetch(BASE_URL + "/auth", {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
 }
 
 export async function getToken(email: string, code: string) {
@@ -63,6 +74,7 @@ export function getSaveToken() {
     const token = localStorage.getItem("auth_token");
     return token;
   }
+  return false;
 }
 
 export function removeToken() {
@@ -105,5 +117,24 @@ export async function getOrder(productId: string, address: string) {
     return data;
   } catch (error) {
     return error;
+  }
+}
+
+export async function getMe() {
+  const token = getSaveToken();
+  if (token) {
+    try {
+      const res = await fetch(BASE_URL + "/me", {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          Authorization: `bearer ${token}`,
+        },
+      });
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
   }
 }

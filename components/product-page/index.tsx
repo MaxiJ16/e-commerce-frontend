@@ -1,10 +1,12 @@
 import Router from "next/router";
+import { useState } from "react";
 import { getOrder, getSaveToken } from "lib/api";
 import { useMe, useProduct } from "hooks";
 import { SearchProductForm } from "components/search-product-form";
 import { PrimaryButton } from "ui/buttons";
 import { BodyText, SpanError, SubTitle, Title } from "ui/text";
 import { Loader } from "ui/loader/loading";
+import { Alert } from "ui/icons";
 import {
   ContainerProductPage,
   ContainerImg,
@@ -14,15 +16,13 @@ import {
   ContainerProductDetail,
   ContainerLoader,
 } from "./styled";
-import { useState } from "react";
-import { Alert } from "ui/icons";
 
 export const Product = ({ productId }: any) => {
   const productData = useProduct(productId);
-  const address = useMe()?.address;
-  const token = getSaveToken();
   const [loader, setLoader] = useState(false);
   const [err, setErr] = useState("");
+  const address = useMe()?.address;
+  const token = getSaveToken();
 
   const handleBuy = async () => {
     setLoader(true);

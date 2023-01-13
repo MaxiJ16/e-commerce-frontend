@@ -38,6 +38,7 @@ export default class MyDocument extends Document {
       <Html lang="es">
         <Head>
           <meta name="description" content="Compralo"></meta>
+          <meta name="theme-color" content="var(--white)" />
           <link
             rel="shortcut icon"
             href="https://res.cloudinary.com/apx-school/image/upload/v1672783253/carropng_xmkjyt.png"

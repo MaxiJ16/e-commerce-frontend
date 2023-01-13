@@ -27,7 +27,6 @@ export const ContainerThanksPage = styled.div`
 
     @media (min-width: 769px) {
       font-size: 26px;
-      
     }
   }
 `;

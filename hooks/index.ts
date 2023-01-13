@@ -1,11 +1,18 @@
-import useSWR from "swr";
-import useSWRImmutable from "swr/immutable";
-
-import { fetchAPI, getSaveToken } from "lib/api";
 import { useEffect, useState } from "react";
+import useSWRImmutable from "swr/immutable";
+import { fetchAPI, getMe, getSaveToken } from "lib/api";
 
 export function useMe() {
-  const { data, error } = useSWR("/me", fetchAPI);
+  const [data, setData] = useState() as any;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getMe();
+      setData(data);
+    };
+    fetchData();
+  }, []);
+
   return data;
 }
 
@@ -42,8 +49,6 @@ export function useGetPagination(productName: string) {
     maxPage,
   };
 }
-
-
 
 export function useProductsFeatured() {
   const { data, error } = useSWRImmutable(`/products`, fetchAPI);

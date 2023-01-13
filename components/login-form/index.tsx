@@ -1,11 +1,12 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Input, Label, Form } from "./styled";
-import { PrimaryButton } from "ui/buttons";
 import { useState } from "react";
-import { BodyTextBold, SpanError, Title } from "ui/text";
-import { sendCode, getToken, getSaveToken } from "lib/api";
 import router from "next/router";
+import { sendCode, getToken, getSaveToken } from "lib/api";
+import { BodyTextBold, SpanError, Title } from "ui/text";
+import { PrimaryButton } from "ui/buttons";
 import { Alert, Mail, Candado } from "ui/icons";
+import { Loader } from "ui/loader/loading";
+import { Input, Label, Form } from "./styled";
 
 interface EFormValues {
   email: string;
@@ -17,6 +18,8 @@ interface CFormValues {
 
 export const LoginForm = () => {
   const [mail, setMail] = useState("");
+  const [loader, setLoader] = useState(false);
+  const [err, setErr] = useState("");
   const token = getSaveToken();
 
   const {
@@ -26,22 +29,26 @@ export const LoginForm = () => {
   } = useForm<any>();
 
   const handleEmailForm: SubmitHandler<EFormValues> = async (data) => {
+    setLoader(true);
     const { email } = data;
-
-    setMail(email);
+    await setMail(email);
     sendCode(email);
+
+    setTimeout(() => {
+      setLoader(false);
+    }, 300);
   };
 
   const handleCodeForm: SubmitHandler<CFormValues> = async (data) => {
     const { code } = data;
+    setLoader(true);
 
     try {
-      // Esperamos la respuesta de getToken
       await getToken(mail, code);
-      // Si todo salió ok lo redirigimos a la home
       router.push("/");
     } catch (error) {
-      // Acá debemos guardar en un state el error y mostrarlo abajo
+      setErr("Código inválido");
+      setLoader(false);
       return error;
     }
   };
@@ -63,7 +70,7 @@ export const LoginForm = () => {
             Debes ingresar un email
           </SpanError>
         )}
-        <PrimaryButton>Continuar</PrimaryButton>
+        <PrimaryButton>{loader ? <Loader /> : "Continuar"}</PrimaryButton>
       </Form>
     ) : (
       <div>
@@ -79,7 +86,7 @@ export const LoginForm = () => {
           <Candado />
           Código
         </Label>
-        <Input type="text" {...register("code", { required: true })} />
+        <Input type="password" {...register("code", { required: true })} />
       </label>
       {errors.code && (
         <SpanError role="alert">
@@ -87,7 +94,8 @@ export const LoginForm = () => {
           Debes ingresar un código
         </SpanError>
       )}
-      <PrimaryButton>Continuar</PrimaryButton>
+      <SpanError>{err}</SpanError>
+      <PrimaryButton>{loader ? <Loader /> : "Continuar"}</PrimaryButton>
     </Form>
   );
 };

@@ -1,7 +1,8 @@
 import styled from "styled-components";
+
 export const ContainerProductPage = styled.div`
   @media (min-width: 1200px) {
-    height: calc(100vh - 329px);
+    min-height: 65vh;
     background-color: var(--gray);
   }
 `;
@@ -9,11 +10,10 @@ export const ContainerProductPage = styled.div`
 export const ContainerProductDetail = styled.div`
   height: auto;
   width: 100%;
-
   padding: 30px 30px 80px;
   display: grid;
-  gap: 20px;
   justify-items: center;
+  gap: 20px;
 
   @media (min-width: 769px) {
     padding: 80px;
@@ -25,8 +25,8 @@ export const ContainerProductDetail = styled.div`
     justify-content: center;
     padding: 90px 80px 101px;
     margin: 0 auto;
+    gap: 30px;
   }
-
   button {
     background-color: var(--primary);
     padding: 20px 12px;

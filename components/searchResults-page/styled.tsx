@@ -2,16 +2,18 @@ import styled from "styled-components";
 
 export const ContainerResultsPage = styled.div`
   background-color: var(--gray);
-  height: auto;
   padding-bottom: 40px;
   display: grid;
-  align-items: center;
   gap: 40px;
+  align-items: center;
   justify-items: center;
 
   @media (min-width: 1200px) {
-    height: calc(100vh - 329px);
-    padding: 50px 300px;
+    background-color: white;
+    padding: 50px 0px;
+    min-height: 65.5vh;
+    width: 1000px;
+    margin: 0 auto;
   }
 
   .resultsAmount {
@@ -22,19 +24,15 @@ export const ContainerResultsPage = styled.div`
     }
   }
 
-
   .containerLoader {
-    height: 400px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
     display: grid;
     gap: 20px;
     place-items: center;
-    
   }
 
   .containerCircles {
-    background: var(--gray);
-
     .circles {
       width: 30px;
       height: 30px;

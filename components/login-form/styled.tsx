@@ -2,16 +2,22 @@ import styled from "styled-components";
 import { Tiny } from "ui/text";
 
 export const Form = styled.form`
+  width: 100%;
   display: grid;
-  gap: 20px;
+  gap: 25px;
 
   p {
-    margin-top: -30px;
+    margin-top: -10px;
     font-size: 18px;
     color: var(--secondary);
   }
+
+  span {
+    margin: 0;
+  }
 `;
 export const Input = styled.input`
+  margin: 10px 0px;
   padding: 6px;
   font-weight: 700;
   font-size: 16px;
@@ -33,4 +39,3 @@ export const Label = styled(Tiny)`
   align-items: center;
   gap: 5px;
 `;
-

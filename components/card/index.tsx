@@ -2,7 +2,6 @@ import  Router  from "next/router";
 import { LargeText, SubTitle } from "ui/text";
 import { ContainerCard, CardImg, CardContent, Img } from "./styled";
 
-
 type propsCard = {
   title?: string;
   price?: string;

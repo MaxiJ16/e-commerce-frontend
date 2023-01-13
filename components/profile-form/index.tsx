@@ -1,29 +1,14 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { modifiedUserData } from "lib/api";
 import { Input, Label } from "components/login-form/styled";
-import { PrimaryButton } from "ui/buttons";
 import { useMe } from "hooks";
+import { PrimaryButton } from "ui/buttons";
 import { SpanError, SpanSuccess } from "ui/text";
 import { Alert, Check } from "ui/icons";
 import { Loader } from "ui/loader/loading";
-
-const Form = styled.form`
-  display: grid;
-  gap: 14px;
-
-  button {
-    color: var(--black);
-    background-color: var(--secondary);
-    margin-top: 20px;
-  }
-
-  .err {
-    text-align: left;
-  }
-`;
+import { Form } from "./styled";
 
 type Inputs = {
   username: string;
@@ -34,7 +19,6 @@ type Inputs = {
 export const ProfileForm = () => {
   const router = useRouter();
   const myData = useMe();
-
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [loader, setLoader] = useState(false);
@@ -42,7 +26,6 @@ export const ProfileForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
 

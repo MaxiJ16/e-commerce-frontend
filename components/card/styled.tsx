@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const ContainerCard = styled.div`
-  /* border: 1px solid var(--primary); */
   background-color: var(--white);
   border-radius: 10px;
   width: 270px;
-  
   display: flex;
   flex-direction: column;
   box-shadow: 0px 30px 60px rgba(57, 57, 57, 0.1);
