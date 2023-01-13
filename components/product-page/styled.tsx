@@ -55,6 +55,10 @@ export const ContainerDetail = styled.div`
   @media (min-width: 1280px) {
     width: 30%;
   }
+
+  button:hover {
+    background-color: var(--secondary);
+  }
 `;
 
 export const ContainerImg = styled.div``;

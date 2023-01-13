@@ -6,7 +6,7 @@ export const FooterContainer = styled.footer`
   padding: 30px;
   display: grid;
   gap: 30px;
-  
+
   @media (min-width: 760px) {
     height: 25vh;
     display: flex;
@@ -26,6 +26,10 @@ export const FooterContent = styled.div`
   a {
     display: flex;
     color: var(--white);
+  }
+
+  a:hover {
+    color: var(--secondary);
   }
 
   svg {

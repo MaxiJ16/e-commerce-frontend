@@ -7,4 +7,8 @@ export const SearchForm = styled.form`
   span {
     margin-top: 0;
   }
+
+  button:hover {
+    background-color: var(--secondary);
+  }
 `;

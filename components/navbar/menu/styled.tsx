@@ -7,6 +7,11 @@ export const ButtonContainer = styled.div`
     width: 172px;
     padding: 0;
   }
+  
+  button:hover {
+    background-color: var(--secondary);
+    color: var(--black);
+  }
 
   @media (min-width: 769px) {
     button {
