@@ -1,5 +1,6 @@
-<h1 align="center">COMPRALO E-COMMERCE</h1>
+<h1 align="center">Compralo E-Commerce</h1>
 Frontend de E-commerce "Compralo", permite al usuario loguearse, buscar y comprar productos (muebles) vía mercado pago como procesador de pagos.
+
 
 <h2 align="left">URL</h2>
 
