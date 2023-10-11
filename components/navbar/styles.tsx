@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Header = styled.header``;
+
 export const NavContainer = styled.nav`
   padding: 1rem;
   background-color: var(--primary);
@@ -28,16 +29,13 @@ export const NavContainer = styled.nav`
     top: -700px;
     left: -2000px;
     right: 0;
-
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     transition: all 0.6s ease;
 
     @media (min-width: 769px) {
-      position: initial;
-      margin: 0;
-      padding: 21px;
+      display: none;
     }
   }
 
@@ -55,9 +53,7 @@ export const NavContainer = styled.nav`
     z-index: 2;
 
     @media (min-width: 769px) {
-      position: initial;
-      margin: 0;
-      width: auto;
+      display: none;
     }
 
     svg {
@@ -101,17 +97,16 @@ export const BgDiv = styled.div`
   position: fixed;
   transition: all 0.6s ease;
 
+  @media (min-width: 769px) {
+    display: none;
+  }
+
   &.active {
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     opacity: 0.5;
-
-    @media (min-width: 769px) {
-      top: -1000px;
-      left: -1000px;
-    }
   }
 `;
 

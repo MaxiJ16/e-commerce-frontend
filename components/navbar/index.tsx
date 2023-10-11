@@ -8,13 +8,7 @@ import { BurguerButton } from "ui/buttons/burguer-button";
 import { LogoWhite, Search, User, Logout } from "ui/icons";
 import { BodyTextBold } from "ui/text";
 import { LogoutButton, PrimaryButton, TertiaryButton } from "ui/buttons";
-import {
-  NavContainer,
-  BgDiv,
-  Header,
-  ContainerForm,
-  ContainerContent,
-} from "./styles";
+import { NavContainer, BgDiv, Header, ContainerForm, ContainerContent } from "./styles";
 
 export function Navbar() {
   const router = useRouter();
@@ -25,11 +19,6 @@ export function Navbar() {
 
   const handleClick = () => {
     setClicked(!clicked);
-  };
-
-  const handleHomeClick = () => {
-    handleClick();
-    router.push("/");
   };
 
   const handleProfileClick = () => {
@@ -55,7 +44,7 @@ export function Navbar() {
   return (
     <Header>
       <NavContainer>
-        <LogoWhite onClick={handleHomeClick} />
+        <LogoWhite onClick={() => router.push("/")} />
 
         <ContainerForm
           style={{
@@ -105,7 +94,7 @@ export function Navbar() {
               <BurguerButton clicked={clicked} handleClick={handleClick} />
             </div>
 
-            <BgDiv className={`initial ${clicked ? `active` : ``}`}></BgDiv>
+            <BgDiv className={`initial ${clicked ? `active` : ``}`} />
           </>
         ) : (
           <TertiaryButton
